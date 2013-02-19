@@ -1,14 +1,18 @@
-# Release notes for Schedim 
+# Schedim: a browser game
 
 Schedim is a reference implementation for the Little Goblin Grails plugin.
 The documentation of Little Goblin provides a step-by-step explanation how to build a game, using Schedim as an example.
 
-Since the work is on both the framework and the game is far from finished,
+Since the work on both the framework and the game is far from finished,
 this is a work in progress.
 
 ## License
 
-This software is licensed under the Apache License 2.0.
+This software is licensed under the Apache License 2.0,
+which means you can use it free of charge in commercial and non-commercial
+products. Just remember: you must always include the copyright notice as
+specified in the LICENSE.txt file.
+
 Open source components contained therein may have different
 (but generally compatible) Licenses like LGPL or BSD.
 
