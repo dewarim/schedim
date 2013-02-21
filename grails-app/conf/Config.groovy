@@ -89,3 +89,11 @@ log4j = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
+
+grails.plugins.springsecurity.userLookup.userDomainClassName = 'de.dewarim.goblin.UserAccount'
+grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'de.dewarim.goblin.UserRole'
+grails.plugins.springsecurity.authority.className = 'de.dewarim.goblin.Role'
+grails.plugins.springsecurity.userLookup.passwordPropertyName = 'passwd'
+grails.plugins.springsecurity.authority.nameField = 'name'
+grails.plugins.springsecurity.successHandler.defaultTargetUrl = '/portal/start'
+grails.plugins.springsecurity.dao.reflectionSaltSourceProperty = 'username'
