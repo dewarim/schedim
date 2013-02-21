@@ -11,7 +11,7 @@ this is a work in progress.
 This software is licensed under the Apache License 2.0,
 which means you can use it free of charge in commercial and non-commercial
 products. Just remember: you must always include the copyright notice as
-specified in the LICENSE.txt file.
+specified in the LICENSE.md file.
 
 Open source components contained therein may have different
 (but generally compatible) Licenses like LGPL or BSD.
