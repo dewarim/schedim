@@ -36,7 +36,7 @@ grails.mime.types = [
 grails.resources.adhoc.patterns = ['/images/*', '/css/*', '/js/*', '/plugins/*']
 
 // The default codec used to encode data with ${}
-grails.views.default.codec = "none" // none, html, base64
+grails.views.default.codec = "html" // none, html, base64
 grails.views.gsp.encoding = "UTF-8"
 grails.converters.encoding = "UTF-8"
 // enable Sitemesh preprocessing of GSP pages
@@ -96,7 +96,15 @@ grails.plugin.springsecurity.authority.className = 'de.dewarim.goblin.Role'
 grails.plugin.springsecurity.userLookup.passwordPropertyName = 'passwd'
 grails.plugin.springsecurity.authority.nameField = 'name'
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/portal/start'
-grails.plugin.springsecurity.dao.reflectionSaltSourceProperty = 'username'
+grails.plugin.springsecurity.password.algorithm = 'bcrypt'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+        '/assets/**':               ['permitAll'],
+]
+grails.plugin.springsecurity.providerNames = [
+        'daoAuthenticationProvider',
+        'anonymousAuthenticationProvider',
+        'rememberMeAuthenticationProvider']
+
 // Uncomment and edit the following lines to start using Grails encoding & escaping improvements
 
 /* remove this line 
