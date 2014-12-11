@@ -16,7 +16,7 @@ specified in the LICENSE.md file.
 Open source components contained therein may have different
 (but generally compatible) Licenses like LGPL or BSD.
 
-This is a Grails 2.2 application running on Java 7.
+This is a Grails 2.4 application running on Java 7.
 
 This code may link to images on the web which have their own copyright
  and licenses, which you should consider and review before going
