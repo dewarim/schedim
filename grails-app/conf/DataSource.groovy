@@ -19,8 +19,17 @@ environments {
             password = ""
         }
     }
-
     development {
+        dataSource {
+            driverClassName = "org.h2.Driver"
+            dbCreate = "update"
+            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+            username = "sa"
+            password = ""
+        }
+    }
+
+    development_pg {
         dataSource {
             dbCreate = "update"
             pooling = true

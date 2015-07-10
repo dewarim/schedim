@@ -71,23 +71,40 @@ environments {
 
 // log4j configuration
 log4j = {
-    // Example of changing the log pattern for the default console appender:
-    //
-    //appenders {
-    //    console name:'stdout', layout:pattern(conversionPattern: '%c{2} %m%n')
-    //}
 
-    error  'org.codehaus.groovy.grails.web.servlet',        // controllers
-           'org.codehaus.groovy.grails.web.pages',          // GSP
-           'org.codehaus.groovy.grails.web.sitemesh',       // layouts
-           'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
-           'org.codehaus.groovy.grails.web.mapping',        // URL mapping
-           'org.codehaus.groovy.grails.commons',            // core / classloading
-           'org.codehaus.groovy.grails.plugins',            // plugins
-           'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
-           'org.springframework',
-           'org.hibernate',
-           'net.sf.ehcache.hibernate'
+    error 'org.springframework.core.io.support.PathMatchingResourcePatternResolver',
+            'org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin',
+            'org.codehaus.groovy.grails.commons',
+            'org.codehaus.groovy.grails.validation',
+            'org.grails.plugin.resource',
+            'org.apache.catalina',
+            'org.apache.coyote',
+            'org.apache.tomcat',
+            'org.codehaus.groovy.grails.web.pages.GroovyPageResourceLoader',
+            'org.codehaus.groovy.grails',
+            'org.apache.naming',
+            'grails.app.taglib.org.grails.plugin.resource.ResourceTagLib',
+            'org.apache.commons',
+            'grails.plugin.fixtures.builder.processor.FixtureBeanPostProcessor'
+
+
+    warn 'grails.app.services.de.dewarim.goblin.SkillService',
+            'grails.app.services.de.dewarim.goblin.ProductionService',
+            'grails.app.services.de.dewarim.goblin.MeleeService'
+    warn   'grails.plugin.springsecurity.web.authentication',
+            'grails.plugin.springsecurity.web.filter'
+
+    debug 'grails.app.controller',
+            'grails.app.domain.de.dewarim.goblin',
+            'grails.app.domain.de.dewarim.goblin.Creature',
+            'grails.app.bootstrap',
+            'de.dewarim.goblin.admin',
+            'de.dewarim.goblin.admin.EquipmentSlotTypeAdminController'
+
+    root {
+        debug 'stdout'
+    }
+
 }
 
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'de.dewarim.goblin.UserAccount'
@@ -99,11 +116,18 @@ grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/portal/start'
 grails.plugin.springsecurity.password.algorithm = 'bcrypt'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/assets/**':               ['permitAll'],
+        '/':                        ['permitAll'],
+//        '/portal/landing':          ['permitAll'],
+]
+grails.plugin.springsecurity.interceptUrlMap = [
+        '/**': ["IS_AUTHENTICATED_ANONYMOUSLY"]
 ]
 grails.plugin.springsecurity.providerNames = [
         'daoAuthenticationProvider',
-        'anonymousAuthenticationProvider',
+//        'anonymousAuthenticationProvider',
         'rememberMeAuthenticationProvider']
+
+apf.filterProcessesUrl='/j_spring_security_check”'
 
 // Uncomment and edit the following lines to start using Grails encoding & escaping improvements
 
