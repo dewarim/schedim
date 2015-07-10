@@ -23,8 +23,8 @@ grails.project.dependency.resolution = {
     legacyResolve false // whether to do a secondary resolve on plugin installation, not advised and here for backwards compatibility
 
     repositories {
-        grailsCentral()
         mavenLocal()
+        grailsCentral()
         mavenCentral()
 //        mavenRepo 'http://repo.spring.io/milestone'
     }
@@ -34,13 +34,13 @@ grails.project.dependency.resolution = {
     }
 
     plugins {
-        build ':tomcat:7.0.54'
-        runtime ":hibernate:3.6.10.17"
-        build':release:3.0.0', ':rest-client-builder:1.0.3', {
+        build ':tomcat:8.0.15'
+        runtime ":hibernate:3.6.10.19"
+        build':release:3.1.1', ':rest-client-builder:2.1.1', {
             export = false
         }
-        compile ":asset-pipeline:1.9.7"
+        compile ":asset-pipeline:1.9.9"
 
-        compile ':goblin:0.4.0.3'
+        compile ':goblin:0.4.9'
     }
 }
