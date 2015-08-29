@@ -99,7 +99,7 @@ log4j = {
             'grails.app.domain.de.dewarim.goblin.Creature',
             'grails.app.bootstrap',
             'de.dewarim.goblin.admin',
-            'de.dewarim.goblin.admin.EquipmentSlotTypeAdminController'
+            'de.dewarim.schedim'
 
     root {
         debug 'stdout'
