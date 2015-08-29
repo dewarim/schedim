@@ -3,7 +3,7 @@ dataSource {
 
 }
 hibernate {
-    cache.use_second_level_cache = true
+    cache.use_second_level_cache = false
     cache.use_query_cache = false
     cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory'
 }
@@ -19,17 +19,17 @@ environments {
             password = ""
         }
     }
-    development {
-        dataSource {
-            driverClassName = "org.h2.Driver"
-            dbCreate = "update"
-            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
-            username = "sa"
-            password = ""
-        }
-    }
+//    development {
+//        dataSource {
+//            driverClassName = "org.h2.Driver"
+//            dbCreate = "update"
+//            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000"
+//            username = "sa"
+//            password = ""
+//        }
+//    }
 
-    development_pg {
+    development {
         dataSource {
             dbCreate = "update"
             pooling = true
