@@ -1,5 +1,6 @@
 package de.schedim
 
+import de.dewarim.goblin.pc.PlayerCharacter
 import grails.plugin.springsecurity.annotation.Secured
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken
 import org.springframework.security.core.Authentication
@@ -31,9 +32,18 @@ class QuickStartController {
             SecurityContextHolder.getContext().setAuthentication(authenticatedUser);
             user = springSecurityService.currentUser
             log.debug("new user: " + user)
+
+            // TODO: generate cool character name
+            PlayerCharacter pc = new PlayerCharacter(name: UUID.randomUUID().toString(), user: user)
+            pc.save()
+            session.pc = pc
         }
-        return [user: user]
+        redirect(controller: 'combat', action: 'fight')
     }
 
 
+    @Secured(['IS_AUTHENTICATED_ANONYMOUSLY'])
+    def landing() {
+        
+    }
 }
