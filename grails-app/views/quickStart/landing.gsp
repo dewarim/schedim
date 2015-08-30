@@ -6,31 +6,13 @@
     <asset:stylesheet src="login.css"/>
 
     <title><g:message code="portal.landing.title"/></title>
-    <g:if test="${grailsApplication.config.facebook.enabled}">
-        <script type="text/javascript">(function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "//connect.facebook.net/en_US/all.js#appId=${grailsApplication.config.facebook?.appId}&xfbml=1";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-        </script>
-    </g:if>
-
+ 
 </head>
 
 <body class="landing_body main">
 
 <div class="navigation">
-    %{--<g:if test="${grailsApplication.config.facebook?.enableLikeButton}">--}%
-        %{--<div id="fblike-root"></div>--}%
-
-        %{--<div class="fb-like" data-href="${grailsApplication.config.facebook?.myUrl}" data-send="false" data-width="450"--}%
-             %{--data-show-faces="false" data-font="tahoma"></div>--}%
-    %{--</g:if>--}%
+   
 </div>
 
 
@@ -69,14 +51,6 @@
             </sec:ifLoggedIn>
             <sec:ifNotLoggedIn>
                 <g:render template="/shared/login" plugin="goblin" model="[postUrl: postUrl]"/>
-                <!-- <g:link action="start" controller="portal"><g:message code="link.to.login"/></g:link>
-                <br>
-                <br>
-                <g:if test="${grailsApplication.config.facebook?.enableFacebookLogin}">
-                    <div class="fb-login-button" data-show-faces="false" data-width="200" data-max-rows="1"></div>
-                </g:if>
-                -->
-
             </sec:ifNotLoggedIn>
 
         </div>
@@ -85,15 +59,19 @@
             <p>Welcome to Schedim, a fantasy game based upon the Little Goblin framework.
             This game is currently under development. This test server will be reset with each update.
             </p>
-
+            
             <p>You are invited to test the current functionality by using the "anon" login with password "anon".
-
             If you want to report any bugs or if you miss a specific feature, please file a
-                <a href="https://sourceforge.net/tracker/?group_id=317345&amp;atid=1334697">bug report</a>
-                or a
-                <a href="https://sourceforge.net/tracker/?group_id=317345&amp;atid=1334694">feature request</a> on Sourceforge.net
+                <a href="https://github.com/dewarim/schedim/issues/">bug report</a> or
+            or a
+                <a href="https://github.com/dewarim/schedim/issues/">feature request</a> on GitHub.com
             </p>
 
+            <p>
+                You can also start at once without manual registration or login by using the new <g:link 
+                    controller="quickStart" action="start">QuickStart</g:link> feature.
+            </p>
+            
             <p>You can also just send a mail ( ingo_wiarda@dewarim.de ) or tweet me: <a
                     href="http://twitter.com/#!dewarim">twitter.com/#!/dewarim</a></p>
         </div>
@@ -104,17 +82,13 @@
 
         <div class="version_info">
             <pre>
+                0.0.2 Allow automatic account creation 
                 0.0.1 First version.
             </pre>
 
             <div class="">
                 <a href="${assetPath(src: 'txt/status.txt')}" target="_blank"><g:message code="link.to.status.old"/></a>
             </div>
-
-            <div class="highscore_link">
-                <g:link action="show" controller="score"><g:message code="link.to.score"/></g:link>
-            </div>
-
 
             <div class="langSelect">
                 <br>
@@ -134,16 +108,10 @@
     </div>
 
     <div class="col3">
-        <div class="landing_about">
-            <h2><g:message code="landing.about.title"/></h2>
-            <g:message code="landing.about.text"/>
-        </div>
+      
 
     </div>
 </div>
 
-<g:if test="${grailsApplication.config.facebook?.enabled}">
-    <div id="fb-root"></div>
-</g:if>
 </body>
 </html>
